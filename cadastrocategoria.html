@@ -10,22 +10,23 @@
 
 <body>
     <div id="formulario">
-        <form name="formulario" method="post" action="cadastro.php">
+        <form name="formulario" method="post" action="cadastro.php" enctype="multipart/form-data">
             <div class="titulo">
                 <h1>CADASTRO CATEGORIA \(￣︶￣*\)</h1>
             </div>
-            <br>
-            codigo: <br> <input type="text" name="codigo" id="codigo" size=30>
-            <br><br>
-            nome: <br> <input type="text" name="nome" id="nome" size=30>
-            <br><br>
+            <div id="seila">
+                <br>
+                codigo: <br> <input type="text" name="codigo" id="codigo" size=30>
+                <br><br>
+                nome: <br> <input type="text" name="nome" id="nome" size=30>
+                <br><br>
 
-            <input type="submit" name="gravarcategoria" value="gravar">
-            <input type="submit" name="alterarcategoria" value="alterar">
-            <input type="submit" name="excluircategoria" value="excluir">
-            <input type="submit" name="pesquisarcategoria" value="pesquisar">
-            <br><br>
-
+                <input type="submit" name="gravarcategoria" value="gravar">
+                <input type="submit" name="alterarcategoria" value="alterar">
+                <input type="submit" name="excluircategoria" value="excluir">
+                <input type="submit" name="pesquisarcategoria" value="pesquisar">
+                <br><br>
+            </div>
         </form>
     </div>
     </div>

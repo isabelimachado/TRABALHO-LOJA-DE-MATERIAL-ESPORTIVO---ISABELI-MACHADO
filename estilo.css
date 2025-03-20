@@ -1,6 +1,6 @@
 body{
-    background-color: #fd9050;
-
+    background-color: #fd9f69;
+    font-family: 'Arial Narrow';
 
 }
 #seila{
@@ -13,6 +13,64 @@ body{
     transform: translate(-50%, -50%);
 }
 
-#titulo{
+.titulo{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.titulo2{
     text-align: center;
 }
+
+#parteum{
+
+    display: inline-block;
+    position: absolute;
+    bottom: 160px;
+    left: 25%;
+
+}
+
+#partedois{
+    display: inline-block;
+    position: absolute;
+    bottom: 106px;
+    right: 20%;
+}
+
+
+input[type=submit]{
+    background-color: #f37b2a;
+    width: 95px;
+    height: 30px;
+    border-radius: 30px;
+    border: #fd9f69;
+    border: 2px solid #2b1609;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type=submit]:hover {
+    border-color: #f56e2080;
+    box-shadow: 0 0 5px #b4600180;
+}
+
+
+input[type="text"] {
+    width: 300px;
+    padding: 5px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    color: #2b1609;
+}
+
+
+
+
