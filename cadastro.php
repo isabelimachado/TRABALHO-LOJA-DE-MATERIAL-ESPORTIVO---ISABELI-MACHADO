@@ -231,13 +231,17 @@ if (isset($_POST['gravarproduto']))
     $codmarca          = $_POST['codmarca'];
     $codcategoria      = $_POST['codcategoria'];
     $codtipo           = $_POST['codtipo'];
+
     $foto1             = $_FILES['foto1'];
     $foto2             = $_FILES['foto2'];
 
+
     $diretorio = "fotos/";
+
     $extensao1 = strtolower(substr($_FILES['foto1']['name'], -4));
     $novo_nome1 = md5(time().$extensao1);
     move_uploaded_file($_FILES['foto1']['tmp_name'], $diretorio.$novo_nome1);
+
 
     $extensao2 = strtolower(substr($_FILES['foto2']['name'], -6));
     $novo_nome2 = md5(time().$extensao2);
@@ -246,7 +250,7 @@ if (isset($_POST['gravarproduto']))
    $sql = mysql_query("INSERT INTO produto (codigo,descricao,cor,tamanho,preco,codmarca,codcategoria,codtipo,foto1,foto2)
                 values ('$codigo','$descricao','$cor','$tamanho','$preco','$codmarca','$codcategoria','$codtipo','$novo_nome1','$novo_nome2')");
 
-   $resultado = mysql_query(query:: $sql);
+   $resultado = mysql_query($sql);
 
    if ($resultado)
         {echo " Falha ao gravar os dados informados";}
