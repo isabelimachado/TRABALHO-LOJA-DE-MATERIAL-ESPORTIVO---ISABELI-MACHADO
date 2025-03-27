@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login do usuário</title>
+</head>
+<body>
+    <h2>LOGIN DO USUÁRIO </h2>
+    <form name="formulario" method="post" action="loginusuario.php">
+    <b>Login: </b><input type="text" name="login" id="login" size="10">
+    <br><br>
+    <b>Senha: </b><input type="password" name="senha" id="senha" size="10">
+    <br><br><br>
+    <input type="submit" name="conectar" value="conectar">
+    </form>
+
+    <style>
+        body{
+            background-color: #fd9f69;
+            font-size: 20px;
+            font-family: 'Arial Narrow';
+            display: inline-block;
+            margin: auto ;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+        }
+
+        input[type=submit]{
+            background-color: #f37b2a;
+            width: 100px;
+            height: 40px;
+            border-radius: 30px;
+            border: #fd9f69;
+            border: 2px solid #2b1609;
+            border-radius: 4px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type=submit]:hover {
+            border-color: #f56e2080;
+            box-shadow: 0 0 5px #b4600180;
+        }
+
+        input[type="text"],input[type="password"] {
+            width: 300px;
+            padding: 5px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,input[type="password"] {
+            outline: none;
+            color: #2b1609;
+        }
+        
+        
+
+    </style>
+</body>
+</html>
