@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrativo - Pratique Esportes</title>
+    <style>
+        body {
+            font-family: "Arial Narrow";
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        .meio{
+            background-color: #ff9d5c;
+            margin: 30px auto;
+            height: 350px;
+            width: 800px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+
+        }
+
+        .admin-header {
+            background-color: #cf6f2e;
+            color: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .admin-container {
+            max-width: 800px;
+            margin: 50px auto; 
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            position: relative; 
+            top: 100px; 
+        }
+        .admin-btn {
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .admin-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .admin-btn img {
+            width: 80px;
+            height: 80px;
+        }
+        .admin-btn h3 {
+            margin: 0;
+            color: #333;
+
+        }
+        .logout-btn {
+            background-color: #f0392c;
+            color: white;
+            padding: 10px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <h1>Pratique Esportes - Cadastros Administrativo</h1>
+        <a href="menu.html" class="logout-btn">Sair</a>
+    </header>
+    <div class="meio">
+    <div class="admin-container">
+        <button class="admin-btn" onclick="window.location.href='cadastroproduto.html';">
+            <h3>Cadastrar Produto</h3>
+        </button>
+
+        <button class="admin-btn" onclick="window.location.href='cadastrotipo.html';">
+            <h3>Cadastrar Tipo</h3>
+        </button>
+
+        <button class="admin-btn" onclick="window.location.href='cadastromarca.html';">
+            <h3>Cadastrar Marca</h3>
+        </button>
+
+        <button class="admin-btn" onclick="window.location.href='cadastrocategoria.html';">
+            <h3>Cadastrar Categoria</h3>
+        </button>
+    </div>
+    </div>
+</body>
+</html>

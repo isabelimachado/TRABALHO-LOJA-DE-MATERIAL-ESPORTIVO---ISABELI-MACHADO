@@ -236,7 +236,7 @@ if (isset($_POST['gravarproduto']))
     $foto2             = $_FILES['foto2'];
 
 
-    $diretorio = "fotos/";
+    $diretorio = "fotosbanco/";
 
     $extensao1 = strtolower(substr($_FILES['foto1']['name'], -4));
     $novo_nome1 = md5(time().$extensao1);
@@ -293,27 +293,29 @@ if (isset($_POST['excluirproduto']))
 
 if (isset($_POST['pesquisarproduto']))
 {
-    $sql = mysql_query("SELECT codigo,descricao,cor,tamanho,preco,codmarca,codcategoria,codtipo,foto1,foto2 FROM produto");
-    
-    if (mysql_num_rows($sql) == 0)
-          {echo "Desculpe, mas sua pesquisa nao encontrou resultados.";}
-    else
-         {
-         echo "<b>Produtos Cadastrados:</b><br><br>";
-         while ($dados = mysql_fetch_object($sql))
-          {
-                echo "Codigo    : ".$dados->codigo."  ";
-                echo "Desricao  : ".$dados->descricao." ";
-                echo "Cor       : ".$dados->cor." ";
-                echo "Tamanho   : ".$dados->tamanho." ";
-                echo "Preco     : ".$dados->preco."<br>";
-                echo "Marca     : ".$dados->codmarca."";
-                echo "Categoria : ".$dados->codcategoria." ";
-                echo "Tipo      : ".$dados->codtipo."<br>";
+   
+   $sql = mysql_query("SELECT codigo, descricao, cor, tamanho, preco, codmarca, codcategoria, codtipo, foto1, foto2
+   FROM produto");
+
+   if (mysql_num_rows($sql) == 0)
+         {echo "Desculpe, mas sua pesquisa nao retornou resultados.";}
+   else
+        {
+        echo "<b>Produtos Cadastrados:</b><br><br>";
+        while ($dados = mysql_fetch_object($sql))
+            {
+                echo "Codigo         : ".$dados->codigo." ";
+                echo "Descricao      : ".$dados->descricao." ";
+                echo "Cor            : ".$dados->cor." ";
+                echo "Tamanho        : ".$dados->tamanho." ";
+                echo "Preco          : ".$dados->preco." ";
+                echo "Marca          : ".$dados->codmarca." ";
+                echo "Categoria      : ".$dados->codcategoria." ";
+                echo "Tipo           : ".$dados->codtipo."<br>";
                 echo '<img src="fotos/'.$dados->foto1.'"height="200" width="200" />'."  ";
                 echo '<img src="fotos/'.$dados->foto2.'"height="200" width="200" />'."<br><br>  ";
-         }
-      }
- }
+            }
+        }
+    }
  
  ?>
