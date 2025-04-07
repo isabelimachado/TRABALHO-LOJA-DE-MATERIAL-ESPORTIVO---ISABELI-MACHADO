@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
     <title>Pratique Esportes - Loja de Roupas Esportivas</title>
+
     <style>
         body {
             font-family: "Arial Narrow";
@@ -10,14 +12,26 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+
         .header {
             background-color: #cf6f2e;
             color: white;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; 
             align-items: center;
             padding: 15px;
         }
+        
+        .header h1 {
+            text-align: center;
+            margin: 0;
+        }
+        
+        .header .login-btn {
+            position: absolute;
+            right: 15px;  
+        }
+
         .container {
             display: flex;
             max-width: 1200px;
@@ -75,6 +89,7 @@
     </style>
 </head>
 <body>
+
     <header class="header">
         <h1>Pratique Esportes</h1>
         <a href="login.html" class="login-btn">Login ADM</a>
@@ -112,6 +127,14 @@
                     <input type="checkbox" name="categoria" value="calcados" onchange="filtrarProdutos()">
                     Calçados
                 </label>
+                <label>
+                    <input type="checkbox" name="categoria" value="boné" onchange="filtrarProdutos()">
+                    Boné
+                </label>
+                <label>
+                    <input type="checkbox" name="categoria" value="mochila" onchange="filtrarProdutos()">
+                    Mochila
+                </label>
             </div>
 
             <div class="filtro-grupo">
@@ -146,25 +169,53 @@
                 <p>R$ 199,99</p>
             </div>
 
-            <div class="produto" data-marca="puma" data-categoria="calcados" data-tamanho="p">
+            <div class="produto" data-marca="puma" data-categoria="calcados">
                 <img src="fotosite/tenis.webp" alt="Tênis Puma">
                 <h3>Tênis Puma Running</h3>
                 <p>Tênis de corrida de alta performance</p>
                 <p>R$ 349,99</p>
             </div>
 
-            <div class="produto" data-marca="adidas" data-categoria="camisa" data-tamanho="m">
+            <div class="produto" data-marca="adidas" data-categoria="camisa" data-tamanho="g">
                 <img src="fotosite/camisa treino.webp">
                 <h3>Camisa Regata Adidas</h3>
                 <p>Camisa esportiva anti transpirante</p>
                 <p>R$ 150,00</p>
             </div>
 
-            <div class="produto" data-marca="nike" data-categoria="camisa" data-tamanho="g">
+            <div class="produto" data-marca="nike" data-categoria="calcas" data-tamanho="g">
                 <img src="fotosite/calca nike.jpg">
                 <h3>Calça Nike Dry</h3>
-                <p>Calça de academia e treino</p>
+                <p>Calça Nike Dry de academia e treino</p>
                 <p>R$ 200,00</p>
+            </div>
+
+            <div class="produto" data-marca="nike" data-categoria="boné" data-tamanho="p">
+                <img src="fotosite/bonenike.avif">
+                <h3>Boné Nike Club Futura Wash</h3>
+                <p>Boné Nike Club desestruturado e de profundidade média</p>
+                <p>R$ 120,00</p>
+            </div>
+
+            <div class="produto" data-marca="adidas" data-categoria="mochila">
+                <img src="fotosite/mochiladidas.webp">
+                <h3>Mochila Classic Badge Of Sport adidas Cor Rosa</h3>
+                <p>Mochila para armazenar todas as suas coisas. Desde o notebook até seu equipamento de corrida</p>
+                <p>R$ 205,99</p>
+            </div>
+
+            <div class="produto" data-marca="puma" data-categoria="mochila">
+                <img src="fotosite/mochilapuma.webp">
+                <h3>Mochila Puma Phase Backpack Azul Marinho</h3>
+                <p>Use essa mochila puma para viajar e caminhar por onde quiser com tudo o que você precisa</p>
+                <p>R$ 205,99</p>
+            </div>
+
+            <div class="produto" data-marca="nike" data-categoria="camisa" data-tamanho="m" >
+                <img src="fotosite/camisatimao.avif">
+                <h3>Camisa Nike Corinthians Treino 2025</h3>
+                <p>A camiseta Corinthians Treino 2025 Academy Pro com ajuste relaxado combina mesh super leve com tecido que absorve o suor</p>
+                <p>R$ 265,99</p>
             </div>
         </main>
     </div>
@@ -184,6 +235,7 @@
                 const marca = produto.getAttribute('data-marca');
                 const categoria = produto.getAttribute('data-categoria');
                 const tamanho = produto.getAttribute('data-tamanho');
+
 
                 const marcaValida = marcasSelecionadas.length === 0 || marcasSelecionadas.includes(marca);
                 const categoriaValida = categoriasSelecionadas.length === 0 || categoriasSelecionadas.includes(categoria);
