@@ -51,6 +51,7 @@
             gap: 20px;
             flex-grow: 1;
         }
+
         .produto {
             width: 250px;
             background-color: white;
@@ -59,6 +60,14 @@
             text-align: center;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
+        .produto:hover{
+            transform: scale(1.05);
+            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        }
+
         .produto img {
             max-width: 100%;
             height: 250px;
@@ -71,6 +80,7 @@
             transition: transform 0.4s, box-shadow 0.4s;
             box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
+
 
         .login-btn {
             background-color: #bb662d;
@@ -195,7 +205,7 @@
                 <p>R$ 349,99</p>
             </div>
 
-            <div class="produto" data-marca="adidas" data-categoria="camisa" data-tamanho="g">
+            <div class="produto" data-marca="adidas" data-categoria="camisetas" data-tamanho="g">
                 <img src="fotosite/camisa treino.webp">
                 <h3>Camisa Regata Adidas</h3>
                 <p>Camisa esportiva anti transpirante</p>
@@ -230,7 +240,7 @@
                 <p>R$ 205,99</p>
             </div>
 
-            <div class="produto" data-marca="nike" data-categoria="camisa" data-tamanho="m" >
+            <div class="produto" data-marca="nike" data-categoria="camisetas" data-tamanho="m">
                 <img src="fotosite/camisatimao.avif">
                 <h3>Camisa Nike Corinthians Treino 2025</h3>
                 <p>A camiseta Corinthians Treino 2025 Academy Pro com ajuste relaxado combina mesh super leve com tecido que absorve o suor</p>
