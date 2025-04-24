@@ -12,7 +12,7 @@ $sql = "SELECT login, senha FROM usuario
 
 $resultado = mysql_query($sql);
 
-if (mysql_num_rows($resultado) > 0 )
+if (mysql_num_rows($resultado) == 0 )
 {
    echo "<script language='javascript' type='text/javascript'>
         alert('Login e/ou senha incorretos >:-(');
