@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seu Carrinho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #cf6f2e;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        li {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        li img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .info {
+            flex-grow: 1;
+        }
+
+        .info h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .info p {
+            margin: 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .total {
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .pagar,
+        .voltar {
+            display: inline-block;
+            margin: 25px 10px 0;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .pagar {
+            background-color: #37961f;
+            color: white;
+        }
+
+        .pagar:hover {
+            background-color: #24461b;
+            transform: scale(1.05);
+        }
+
+        .voltar {
+            background-color: #e71515;
+            color: white;
+        }
+
+        .voltar:hover {
+            background-color: #a32121;
+            transform: scale(1.05);
+        }
+
+        .excluir {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #cc0000;
+            cursor: pointer;
+        }
+
+        .excluir:hover {
+            color: #a10000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ITENS NO CARRINHO</h1>
+    <ul id="listaCarrinho"></ul>
+    <div class="total" id="totalCarrinho">Total: R$ 0,00</div>
+    <div style="text-align: center;">
+        <a href="menu.php" class="voltar">Voltar para loja</a>
+        <a href="fotosite/ata.webp" class="pagar">PAGAR!</a>
+    </div>
+
+    <script>
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        const lista = document.getElementById("listaCarrinho");
+        const totalEl = document.getElementById("totalCarrinho");
+
+        function renderizarCarrinho() {
+            lista.innerHTML = "";
+            carrinho.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <input type="checkbox" class="selecionar" data-index="${index}">
+                    <img src="${item.imagem}" alt="${item.nome}">
+                    <div class="info">
+                        <strong>${item.nome}</strong><br>
+                        <b>Total: R$ ${(item.preco * (item.quantidade || 1)).toFixed(2)}</b>
+                    </div>
+                    <button class="excluir" data-index="${index}">❌</button>
+                `;
+                li.classList.add("item-carrinho");
+                lista.appendChild(li);
+            });
+            atualizarTotais();
+        }
+
+        function atualizarTotais() {
+            const checkboxes = document.querySelectorAll(".selecionar");
+            let total = 0;
+            let qtde = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    const index = cb.dataset.index;
+                    const item = carrinho[index];
+                    const qtd = item.quantidade || 1;
+                    total += item.preco * qtd;
+                }
+            });
+            totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        lista.addEventListener("change", (e) => {
+            if (e.target.classList.contains("selecionar")) {
+                atualizarTotais();
+            }
+        });
+
+        lista.addEventListener("click", (e) => {
+            if (e.target.classList.contains("excluir")) {
+                const index = e.target.dataset.index;
+                carrinho.splice(index, 1);
+                localStorage.setItem("carrinho", JSON.stringify(carrinho));
+                renderizarCarrinho();
+            }
+        });
+
+        renderizarCarrinho();
+    </script>
+</body>
+
+</html>
