@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="logo.jpg" type="image/x-icon">
@@ -10,19 +11,19 @@
             font-family: "Arial Narrow";
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #fdad7e;
         }
 
         .carrinho {
             right: 93.8%;
             height: 50px;
             width: 50px;
-            position: absolute; 
-            top:10px;
+            position: absolute;
+            top: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .carrinho:hover{
+        .carrinho:hover {
             transform: scale(1.05);
         }
 
@@ -30,23 +31,23 @@
             background-color: #cf6f2e;
             color: white;
             display: flex;
-            justify-content: center; 
+            justify-content: center;
             align-items: center;
             padding: 15px;
         }
-        
+
         .header h1 {
             text-align: center;
             margin: 0;
-            
-        }
-        
-        .header .login-btn {
-            position: absolute;
-            right: 15px;  
+
         }
 
-        button{
+        .header .login-btn {
+            position: absolute;
+            right: 15px;
+        }
+
+        button {
             background-color: #cf6f2e;
             border: #f4f4f4;
             padding: 10px;
@@ -56,7 +57,7 @@
 
         }
 
-        button:hover{
+        button:hover {
             background-color: #884f29;
         }
 
@@ -65,31 +66,41 @@
             display: flex;
             max-width: 1200px;
             margin: 0 auto;
+            justify-items: center;
             padding: 20px;
-            position: relative;
-            left:50px;
         }
+
         .filtros {
             width: 250px;
             background-color: white;
             padding: 20px;
             margin-right: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .produtos {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             flex-grow: 1;
         }
+
         .produto {
             width: 250px;
             background-color: white;
             border-radius: 8px;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        .produto:hover {
+            transform: scale(1.05);
+            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        }
+
         .produto img {
             max-width: 100%;
             height: 250px;
@@ -97,11 +108,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .produto:hover{
+        .produto:hover {
             transform: scale(1.05);
             transition: transform 0.4s, box-shadow 0.4s;
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
+
 
         .login-btn {
             background-color: #bb662d;
@@ -112,7 +124,7 @@
             transition: transform 0.5s ease, box-shadow 0.3s ease;
         }
 
-        .login-btn:hover{
+        .login-btn:hover {
             transform: scale(1.05);
             transition: transform 0.4s, box-shadow 0.4s;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -130,7 +142,7 @@
             display: block;
             margin-bottom: 5px;
         }
-        
+
         .filtro-titulo {
             border-bottom: 2px solid cf6f2e;
             padding-bottom: 10px;
@@ -138,12 +150,13 @@
         }
     </style>
 </head>
+
 <body>
 
     <header class="header">
-       <a href="carinho.php">
-        <img class="carrinho" src="fotosite/carrinho.png"></img>
-       </a> 
+        <a href="carinho.php">
+            <img class="carrinho" src="fotosite/carrinho.png"></img>
+        </a>
         <h1>Pratique Esportes</h1>
         <a href="login.html" class="login-btn">Login ADM</a>
     </header>
@@ -236,7 +249,7 @@
                 <button type="submit">COMPRAR</button>
             </div>
 
-            <div class="produto" data-marca="adidas" data-categoria="camisa" data-tamanho="g">
+            <div class="produto" data-marca="adidas" data-categoria="camisetas" data-tamanho="g">
                 <img src="fotosite/camisa treino.webp">
                 <h3>Camisa Regata Adidas</h3>
                 <p>Camisa esportiva anti transpirante</p>
@@ -285,10 +298,11 @@
 
             </div>
 
-            <div class="produto" data-marca="nike" data-categoria="camisa" data-tamanho="m" >
+            <div class="produto" data-marca="nike" data-categoria="camisetas" data-tamanho="m">
                 <img src="fotosite/camisatimao.avif">
                 <h3>Camisa Nike Corinthians Treino 2025</h3>
-                <p>A camiseta Corinthians Treino 2025 Academy Pro com ajuste relaxado combina mesh super leve com tecido que absorve o suor</p>
+                <p>A camiseta Corinthians Treino 2025 Academy Pro com ajuste relaxado combina mesh super leve com tecido
+                    que absorve o suor</p>
                 <p>R$ 265,99</p>
                 <br>
                 <button>COMPRAR</button>
@@ -300,7 +314,7 @@
     <script>
         function filtrarProdutos() {
             const produtos = document.querySelectorAll('.produto');
-            
+
             const marcasSelecionadas = Array.from(document.querySelectorAll('input[name="marca"]:checked'))
                 .map(el => el.value);
             const categoriasSelecionadas = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
@@ -323,4 +337,5 @@
         }
     </script>
 </body>
+
 </html>
